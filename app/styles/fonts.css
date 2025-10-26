@@ -1,0 +1,15 @@
+/* NB: I only created this file because of the unique pendeet logo font "quidovaDEMO */
+
+@font-face {
+  font-family: "Qurova";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../../fonts/QurovaDEMO-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Qurova";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../../fonts/QurovaDEMO-Bold.otf") format("opentype");
+}
