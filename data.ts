@@ -4,6 +4,365 @@ import Trend1 from "@/assets/images/trends/trend1.png";
 import Trend3 from "@/assets/images/trends/trend3.jpg";
 import Trend5 from "@/assets/images/trends/trend5.jpg";
 import Trend6 from "@/assets/images/trends/trend6.jpg";
+import avatar1 from "@/assets/images/avatar/avatar1.png";
+import avatar2 from "@/assets/images/avatar/avatar2.png";
+import avatar3 from "@/assets/images/avatar/avatar3.png";
+import avatar4 from "@/assets/images/avatar/avatar4.png";
+import avatar5 from "@/assets/images/avatar/avatar5.png";
+import avatar6 from "@/assets/images/avatar/avatar6.png";
+import avatar7 from "@/assets/images/avatar/avatar7.png";
+
+export const statusOptions = [
+  { value: "all", label: "All" },
+  { value: "pending", label: "Pending Payment" },
+  { value: "processing", label: "Processing Order" },
+  { value: "shipped", label: "Shipped" },
+  { value: "delivered", label: "Delivered" },
+  { value: "cancelled", label: "Cancelled" },
+];
+
+export const periodOptions = [
+  { value: "all-time", label: "All Time" },
+  { value: "last-7-days", label: "Last 7 Days" },
+  { value: "last-30-days", label: "Last 30 Days" },
+  { value: "last-90-days", label: "Last 90 Days" },
+  { value: "this-year", label: "This Year" },
+];
+
+export const ordersData: Order[] = [
+  {
+    name: "Vertical Stripped Shirt",
+    image: "/products/stripped-shirt.png",
+    price: 79000,
+    backgroundColor: "#EEA468",
+    selectedColor: "#597858",
+    size: "xxl",
+    quantity: "X3",
+    orderId: "PEN12345",
+    status: "pending",
+    colorName: "green",
+    date: "2025-11-08T10:00:00.000Z",
+  },
+  {
+    name: "Premium Denim Jacket",
+    image: "/products/denim.png",
+    price: 125000,
+    backgroundColor: "#CDE49F",
+    selectedColor: "#0088FF",
+    size: "xl",
+    quantity: "X5",
+    orderId: "PEN12346",
+    status: "processing",
+    colorName: "blue",
+    date: "2025-11-05T10:00:00.000Z",
+  },
+  {
+    name: "Men’s Corporate shoes",
+    image: "/products/brown-shoe.png",
+    price: 95000,
+    backgroundColor: "#A1A1A1",
+    selectedColor: "#AC7F5E",
+    size: "44",
+    quantity: "X2",
+    orderId: "PEN12347",
+    status: "shipped",
+    colorName: "brown",
+    date: "2025-11-01T10:00:00.000Z",
+  },
+  {
+    name: "Orange Courage Tee",
+    image: "/products/t-shirt.png",
+    price: 240000,
+    backgroundColor: "#F0E1D5",
+    selectedColor: "#FF8D28",
+    size: "xl",
+    quantity: "X4",
+    orderId: "PEN12348",
+    status: "delivered",
+    colorName: "orange",
+    date: "2025-10-25T10:00:00.000Z",
+  },
+  {
+    name: "Unisex Gold Chain",
+    image: "/products/necklace.png",
+    price: 550000,
+    backgroundColor: "#03435F",
+    selectedColor: "#FFCC00",
+    size: "23",
+    quantity: "X2",
+    orderId: "PEN12349",
+    status: "cancelled",
+    colorName: "gold",
+    date: "2025-10-15T10:00:00.000Z",
+  },
+  {
+    name: "Corporate Heels",
+    image: "/products/heels.png",
+    price: 32000,
+    backgroundColor: "#F5AFCB",
+    selectedColor: "#ECCBB3",
+    colorName: "beige",
+    size: "41",
+    quantity: "X1",
+    orderId: "PEN12350",
+    status: "pending",
+    date: "2025-10-01T10:00:00.000Z",
+  },
+];
+
+export const mockConversations = [
+  {
+    id: "1",
+    name: "Jane Doe",
+    username: "@jd1999__",
+    avatar: avatar1,
+    lastMessage:
+      "Hello, Any update on my order, i ought to have received it by now",
+    lastMessageTime: "8:10",
+    unreadCount: 3,
+    isOnline: true,
+  },
+  {
+    id: "2",
+    name: "Jayscloset",
+    username: "@jayscloset",
+    avatar: avatar2,
+    lastMessage: "Hi, is my order still on the way?",
+    lastMessageTime: "8:10",
+    unreadCount: 3,
+    isOnline: true,
+  },
+  {
+    id: "3",
+    name: "Spellz",
+    username: "@spellz",
+    avatar: avatar3,
+    lastMessage: "I want to make some enquiries about a product in your shop",
+    lastMessageTime: "8:10",
+    unreadCount: 3,
+    isOnline: true,
+  },
+  {
+    id: "4",
+    name: "Jane Doe",
+    username: "@jane99",
+    avatar: avatar4,
+    lastMessage: "Hello, Any update on my order, i ought t......",
+    lastMessageTime: "8:10",
+    unreadCount: 3,
+    isOnline: true,
+  },
+  {
+    id: "5",
+    name: "Jane Doe",
+    username: "@janed",
+    avatar: avatar5,
+    lastMessage: "Hello, Any update on my order, i ought t......",
+    lastMessageTime: "8:10",
+    unreadCount: 0,
+    isOnline: true,
+  },
+  {
+    id: "6",
+    name: "Jane Doe",
+    username: "@jd2000",
+    avatar: avatar6,
+    lastMessage: "Hello, Any update on my order, i ought t......",
+    lastMessageTime: "8:10",
+    unreadCount: 3,
+    isOnline: false,
+  },
+  {
+    id: "7",
+    name: "Jane Doe",
+    username: "@janedoe99",
+    avatar: avatar7,
+    lastMessage: "Hello, Any update on my order, i ought t......",
+    lastMessageTime: "8:10",
+    unreadCount: 0,
+    isOnline: false,
+  },
+];
+
+export function getMessagesById(id: string): ChatMessage[] {
+  if (id === "1") {
+    return [
+      {
+        id: "m1",
+        content:
+          "Hello, Any update on my order, i ought to have received it by now",
+        timestamp: "8:10",
+        senderId: "1",
+        senderName: "Jane Doe",
+        senderAvatar: "/avatars/jane1.jpg",
+        type: "text",
+        isOwn: false,
+      },
+      {
+        id: "m2",
+        content:
+          "Sorry for the inconvenience. Your order has been shipped, it is in transit",
+        timestamp: "8:10",
+        senderId: "current",
+        senderName: "You",
+        type: "text",
+        isOwn: true,
+      },
+      {
+        id: "m3",
+        content: "Can I change the color?",
+        timestamp: "8:10",
+        senderId: "1",
+        senderName: "Jane Doe",
+        senderAvatar: "/avatars/jane1.jpg",
+        type: "text",
+        isOwn: false,
+      },
+      {
+        id: "m4",
+        content: "",
+        timestamp: "8:10",
+        senderId: "current",
+        senderName: "You",
+        type: "image",
+        imageUrl: "/products/cotton-shirt.png",
+        imageCaption: "This is how it looks",
+        isOwn: true,
+      },
+    ];
+  }
+  return [];
+}
+
+export async function getMessages(
+  conversationId: string
+): Promise<ChatMessage[]> {
+  // Simulate API call
+  if (conversationId === "1") {
+    return [
+      {
+        id: "m1",
+        content:
+          "Hello, Any update on my order, i ought to have received it by now",
+        timestamp: "8:10",
+        senderId: "1",
+        senderName: "Jane Doe",
+        senderAvatar: "/avatars/jane1.jpg",
+        type: "text",
+        isOwn: false,
+      },
+      {
+        id: "m2",
+        content:
+          "Sorry for the inconvenience. Your order has been shipped, it is in transit",
+        timestamp: "8:10",
+        senderId: "current",
+        senderName: "You",
+        type: "text",
+        isOwn: true,
+      },
+      {
+        id: "m3",
+        content: "Can I change the color?",
+        timestamp: "8:10",
+        senderId: "1",
+        senderName: "Jane Doe",
+        senderAvatar: "/avatars/jane1.jpg",
+        type: "text",
+        isOwn: false,
+      },
+      {
+        id: "m4",
+        content: "",
+        timestamp: "8:10",
+        senderId: "current",
+        senderName: "You",
+        type: "image",
+        imageUrl: "/products/cotton-shirt.png",
+        imageCaption: "This is how it looks",
+        isOwn: true,
+      },
+    ];
+  }
+  return [];
+}
+
+export async function getConversations(): Promise<Conversation[]> {
+  // This would be replaced with actual API call
+  return [
+    {
+      id: "1",
+      name: "Jane Doe",
+      username: "@jd1999__",
+      avatar: avatar1,
+      lastMessage:
+        "Hello, Any update on my order, i ought to have received it by now",
+      lastMessageTime: "8:10",
+      unreadCount: 3,
+      isOnline: true,
+    },
+    {
+      id: "2",
+      name: "Jayscloset",
+      username: "@jayscloset",
+      avatar: avatar2,
+      lastMessage: "Hi, is my order still on the way?",
+      lastMessageTime: "8:10",
+      unreadCount: 3,
+      isOnline: true,
+    },
+    {
+      id: "3",
+      name: "Spellz",
+      username: "@spellz",
+      avatar: avatar3,
+      lastMessage: "I want to make some enquiries about a product in your shop",
+      lastMessageTime: "8:10",
+      unreadCount: 3,
+      isOnline: true,
+    },
+    {
+      id: "4",
+      name: "Jane Doe",
+      username: "@jane99",
+      avatar: avatar4,
+      lastMessage: "Hello, Any update on my order, i ought t......",
+      lastMessageTime: "8:10",
+      unreadCount: 3,
+      isOnline: true,
+    },
+    {
+      id: "5",
+      name: "Jane Doe",
+      username: "@janed",
+      avatar: avatar5,
+      lastMessage: "Hello, Any update on my order, i ought t......",
+      lastMessageTime: "8:10",
+      unreadCount: 0,
+      isOnline: true,
+    },
+    {
+      id: "6",
+      name: "Jane Doe",
+      username: "@jd2000",
+      avatar: avatar6,
+      lastMessage: "Hello, Any update on my order, i ought t......",
+      lastMessageTime: "8:10",
+      unreadCount: 3,
+      isOnline: false,
+    },
+    {
+      id: "7",
+      name: "Jane Doe",
+      username: "@janedoe99",
+      avatar: avatar7,
+      lastMessage: "Hello, Any update on my order, i ought t......",
+      lastMessageTime: "8:10",
+      unreadCount: 0,
+      isOnline: false,
+    },
+  ];
+}
 
 export const trendsData = [
   {

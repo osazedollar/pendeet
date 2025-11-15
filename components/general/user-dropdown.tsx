@@ -15,7 +15,7 @@ const userDropdownItem = [
     id: 1,
     name: "my order",
     icon: PiPackage,
-    link: "/",
+    link: "/orders",
   },
   {
     id: 2,

@@ -1,9 +1,6 @@
 "use client";
-// import { ICON } from "@/utils/icon-export";
-// import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
-// import { FiSearch } from "react-icons/fi";
 
 interface SearchProps {
   className?: string;
@@ -14,9 +11,16 @@ interface SearchProps {
 function SearchBox({
   className = "",
   placeholder = "Search Pendeet",
+  setQuery,
 }: //   setQuery,
 SearchProps) {
   const [input, setInput] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInput(value);
+    setQuery?.(value);
+  };
 
   return (
     <div
@@ -26,7 +30,7 @@ SearchProps) {
         type="text"
         placeholder={placeholder}
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleChange}
         className="w-full ring-1 bg-[#f0f0f0] ring-gray-200 group-focus-within:ring-primary rounded-full py-1.5 sm:py-2 md:py-3 px-12 focus:outline-none duration-300 ease-in-out"
       />
       {/* <Icon
@@ -34,7 +38,6 @@ SearchProps) {
         className="absolute left-4  group-focus-within:text-primary text-gray-500 text-lg md:text-xl  pointer-events-none"
       /> */}
       <BiSearchAlt className="absolute left-4  group-focus-within:text-primary text-gray-500 text-lg md:text-xl  pointer-events-none" />
-      {/* <FiSearch className="absolute left-4  group-focus-within:text-primary text-gray-500 text-lg md:text-xl  pointer-events-none" /> */}
     </div>
   );
 }

@@ -6,7 +6,7 @@ import BaseLayout from "./base-layout";
 function MainLayout({ children }: PropsWithChildren) {
   const pathname = usePathname();
 
-  const hiddenPathPrefixes = ["/trends/"];
+  const hiddenPathPrefixes = ["/trends/", "/chat"];
 
   // Find if the current pathname starts with any of the hidden prefixes.
   const shouldHideUI = hiddenPathPrefixes.some((prefix) =>

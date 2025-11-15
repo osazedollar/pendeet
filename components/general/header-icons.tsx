@@ -27,14 +27,14 @@ function HeaderIcons() {
       <Link href="/cart-wishlist" className="group cursor-pointer relative">
         <BsCart3 size={22} className="group-hover:text-primary" />
 
-        <span className="absolute -right-1 -top-[2px] rounded-full size-3 bg-red-500 text-white text-[8px] flex-center font-medium">
+        <span className="absolute -right-1 -top-0.5 rounded-full size-3 bg-red-500 text-white text-[8px] flex-center font-medium">
           {cartItems.length}
         </span>
       </Link>
 
-      <Link href="/" className="group cursor-pointer relative hidden md:block">
+      <Link href="/chat" className="group cursor-pointer relative hidden md:block">
         <IoChatbubblesOutline size={22} className="group-hover:text-primary" />
-        <span className="absolute -right-1 -top-[2px] rounded-full size-3 bg-red-500 text-white text-[8px] flex-center font-medium">
+        <span className="absolute -right-1 -top-0.5 rounded-full size-3 bg-red-500 text-white text-[8px] flex-center font-medium">
           0
         </span>
       </Link>
@@ -43,7 +43,7 @@ function HeaderIcons() {
           size={22}
           className="group-hover:text-primary"
         />
-        <span className="absolute -right-[2px] -top-[2px] rounded-full size-3 bg-red-500 text-white text-[8px] flex-center font-medium">
+        <span className="absolute -right-0.5 -top-0.5 rounded-full size-3 bg-red-500 text-white text-[8px] flex-center font-medium">
           0
         </span>
       </Link>
